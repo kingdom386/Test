@@ -1,0 +1,165 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: none;
+  box-sizing: border-box;
+}
+
+input {
+  outline: 0;
+  border: none;
+}
+
+:-ms-input-placeholder {
+  font-size: 14px;
+}
+
+::-webkit-input-placeholder {
+  font-size: 14px;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+.color_blue {
+  color: #2196f3;
+}
+
+.color_white {
+  color: #fff !important;
+}
+
+.bg_white {
+  background: #fff;
+}
+
+.text_center {
+  text-align: center;
+}
+
+.txt_right {
+  text-align: right;
+}
+
+.mu-appbar-title {
+  position: relative;
+  color: #2196f3;
+  text-align: center;
+  font-size: 0.3rem;
+}
+
+.mu-appbar-header {
+  position: fixed;
+  right: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.app_top {
+  padding-top: 64px;
+  padding-bottom: 60px;
+}
+
+.app_main_top {
+  padding: 94px 0 0;
+}
+
+.loading {
+  padding-bottom: 56px;
+}
+
+.mu-primary-color {
+  background: #fff;
+}
+
+.mu-form-item .mu-button {
+  margin: 0;
+}
+
+.btn_bg {
+  background: #2196f3;
+  color: #fff;
+}
+
+.margin_btm_init {
+  margin-bottom: 0;
+}
+
+.mu-elevation-4 {
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0), 0 2px 5px 0 rgba(0, 0, 0, .01), 0 1px 8px 0 rgba(0, 0, 0, .01);
+}
+
+.mini_txt {
+  font-size: 14px;
+}
+
+.mu-form-item-content {
+  position: relative;
+}
+
+.mu-grid-tile-titlebar {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.icon_txt {
+  & i {
+    color: #2196f3;
+    font-size: 0.6rem;
+  }
+}
+
+.m_footer {
+  padding: 4px 20px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 56px;
+  background: #fff;
+
+  .m_footer_box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+
+    & span {
+      display: block;
+      flex-basis: 33.3333%;
+      text-align: center;
+      color: #424242;
+
+      & i {
+        font-size: 20px;
+      }
+
+      & p {
+        font-size: 12px;
+      }
+    }
+
+    .active {
+      color: #2196f3;
+    }
+  }
+}
+
+.m_btm {
+  position: fixed;
+  padding: 0 20px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 56px;
+  background: #fff;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
