@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = isTest ? '//47.99.122.206:3389' : '//47.99.122.206:3389';
+const baseURL = isTest ? 'http://47.99.122.206:3389' : 'http//47.99.122.206:3389';
 const timeout = 800000;
 
 function isTest() {
