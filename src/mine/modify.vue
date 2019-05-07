@@ -1,13 +1,16 @@
 <template>
   <div class="modify_pwd">
-    <mu-appbar class="mu-appbar-header" style="width: 100%;" color="primary">
+    <!-- <mu-appbar class="mu-appbar-header" style="width: 100%;" color="primary">
       <mu-button @click="back" flat slot="left">
         <mu-icon value="keyboard_arrow_left" color="blue"></mu-icon>
       </mu-button>修改密码
       <mu-button flat slot="right">&nbsp;</mu-button>
-    </mu-appbar>
+    </mu-appbar>-->
+    <heads>
+      <span slot="title_name">修改密码</span>
+    </heads>
     <mu-container class="app_top">
-      <mu-form :model="form" class="mu_demo_form" ref="modifypwd">
+      <!-- <mu-form :model="form" class="mu_demo_form" ref="modifypwd">
         <mu-form-item prop="oldpassword" :rules="oldpasswordRules">
           <mu-text-field
             placeholder="请输入旧密码"
@@ -37,19 +40,38 @@
             placeholder="请确认新密码"
             :error-text="newmsg2"
           ></mu-text-field>
-          <!-- <mu-text-field placeholder="请确认新密码" v-model="form.newpassword1" :error-text="newmsg2"></mu-text-field> -->
         </mu-form-item>
         <mu-form-item>
           <mu-button full-width color="primary" @click="subform" class="btn_txt">确认修改</mu-button>
         </mu-form-item>
-      </mu-form>
+      </mu-form>-->
+
+      <div class="form_box">
+        <div class="form_item">
+          <input type="text" @blur="checkval(1)" placeholder="请输入旧密码" v-model="form.oldpassword">
+        </div>
+        <div class="form_item">
+          <input type="text" @blur="checkval(2)" placeholder="请输入新密码" v-model="form.newpassword">
+        </div>
+        <div class="form_item">
+          <input type="text" @blur="checkval(3)" placeholder="请确认新密码" v-model="form.newpassword1">
+        </div>
+        <div class="form_item" style="margin-top: 0.5rem;">
+          <mu-button full-width color="primary" @click="subform" class="btn_txt">确认修改</mu-button>
+        </div>
+      </div>
     </mu-container>
   </div>
 </template>
 
 <script>
 import { updatePwd } from "@/utils/api";
+import heads from "@/components/head";
+
 export default {
+  components: {
+    heads
+  },
   data() {
     return {
       oldmsg: "",
@@ -69,49 +91,43 @@ export default {
           validate: val => val.length >= 6 && val.length <= 20,
           message: "密码长度大于6小于20"
         }
-      ],
-      newpasswordRules: [
-        { validate: val => !!val, message: "必须填写密码" },
-        {
-          validate: val => val.length >= 6 && val.length <= 20,
-          message: "密码长度大于6小于20"
-        }
-      ],
-      newpassword1Rules: [
-        { validate: val => !!val, message: "必须填写密码" },
-        {
-          validate: val => val.length >= 6 && val.length <= 20,
-          message: "密码长度大于6小于20"
-        }
       ]
     };
   },
   mounted() {},
   methods: {
+    checkval(val) {
+      if (val === 1 && !this.form.oldpassword) {
+      }
+      if (val === 2) {
+      }
+      if (val === 3) {
+      }
+    },
     back() {
       window.history.back();
     },
     subform() {
-      var _this = this;
-      this.$refs.modifypwd.validate().then(r => {
-        if (r) {
-          if (_this.form.newpassword === _this.form.newpassword1) {
-            updatePwd({
-              oldpwd: _this.form.oldpassword,
-              newpwd: _this.form.newpassword,
-              phone: localStorage.getItem("mobile")
-            }).then(rp => {
-              if (rp.code === 0) {
-                _this.$router.push("/");
-              } else {
-                _this.$toast.error(rp.message);
-              }
-            });
-          } else {
-            _this.$toast.error("两次输入的密码不一致！");
-          }
-        }
-      });
+      // var _this = this;
+      // this.$refs.modifypwd.validate().then(r => {
+      //   if (r) {
+      //     if (_this.form.newpassword === _this.form.newpassword1) {
+      //       updatePwd({
+      //         oldpwd: _this.form.oldpassword,
+      //         newpwd: _this.form.newpassword,
+      //         phone: localStorage.getItem("mobile")
+      //       }).then(rp => {
+      //         if (rp.code === 0) {
+      //           _this.$router.push("/");
+      //         } else {
+      //           _this.$toast.error(rp.message);
+      //         }
+      //       });
+      //     } else {
+      //       _this.$toast.error("两次输入的密码不一致！");
+      //     }
+      //   }
+      // });
     }
   }
 };
@@ -121,12 +137,27 @@ export default {
 .modify_pwd {
   background: #f1f1f1;
   min-height: 100%;
-  .mu_demo_form {
-    padding: 10px;
+  .form_box {
+    padding: 0.2rem;
     background: #fff;
-    .btn_txt {
-      background: #2196f3;
+    .form_item {
+      position: relative;
+      margin-bottom: 0.3rem;
+      height: 0.6rem;
+      width: 100%;
+    }
+    & input {
+      width: 100%;
+      font-size: 0.24rem;
+      line-height: 0.6rem;
+      border-bottom: 1px solid #e0e0e0;
     }
   }
+}
+</style>
+
+<style scoped>
+.form_item /deep/ .mu-button-wrapper {
+  background: #2196f3;
 }
 </style>

@@ -1,11 +1,14 @@
 <template>
   <div class="pool_box">
-    <mu-appbar class="mu-appbar-header" style="width: 100%;" color="primary">
+    <!-- <mu-appbar class="mu-appbar-header" style="width: 100%;" color="primary">
       <mu-button @click="back" class="icon_txt" icon slot="left">
         <mu-icon value="keyboard_arrow_left" color="blue"></mu-icon>
       </mu-button>查看订单
       <mu-button flat slot="right">&nbsp;</mu-button>
-    </mu-appbar>
+    </mu-appbar> -->
+    <heads>
+      <span slot="title_name">查看订单</span>
+    </heads>
     <mu-container class="app_top" style="padding-bottom: 0;">
       <mu-load-more :loading="waiting" @load="loadmore">
         <div class="d_box">
@@ -85,8 +88,12 @@
 
 <script>
 import { listOrder, getOrder, updateOrder } from "@/utils/api";
+import heads from "@/components/head";
 
 export default {
+  components: {
+    heads
+  },
   data() {
     return {
       listData: [],

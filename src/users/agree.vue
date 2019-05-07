@@ -1,11 +1,14 @@
 <template>
   <div class="ag_box">
-    <mu-appbar class="mu-appbar-header" style="width: 100%;" color="primary">
+    <!-- <mu-appbar class="mu-appbar-header" style="width: 100%;" color="primary">
       <mu-button @click="back" class="icon_txt" icon slot="left">
         <mu-icon value="keyboard_arrow_left"></mu-icon>
       </mu-button>用户注册协议
       <mu-button flat slot="right"></mu-button>
-    </mu-appbar>
+    </mu-appbar> -->
+    <heads>
+      <span slot="title_name">用户注册协议</span>
+    </heads>
     <div class="app_top">
       <mu-container class="contents">
         <mu-flex justify-content="start">
@@ -18,7 +21,12 @@
 
 <script>
 import { Protocol } from "@/utils/api";
+import heads from "@/components/head";
+
 export default {
+  components: {
+    heads
+  },
   data() {
     return {
       content: ""

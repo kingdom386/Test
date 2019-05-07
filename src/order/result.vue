@@ -1,12 +1,15 @@
 <template>
   <div class="contract_box">
-    <mu-appbar class="mu-appbar-header" style="width: 100%;" color="primary">
+    <!-- <mu-appbar class="mu-appbar-header" style="width: 100%;" color="primary">
       <mu-button @click="back" class="icon_txt" icon slot="left">
         <mu-icon value="keyboard_arrow_left"></mu-icon>
       </mu-button>签约成功
       <mu-button flat slot="right"></mu-button>
-    </mu-appbar>
+    </mu-appbar> -->
     <!-- d_top -->
+    <heads>
+      <span slot="title_name">签约成功</span>
+    </heads>
     <div class="d_content">
       <div v-show="true" class="d_success">
         <img src="../assets/images/order_success.jpg" alt>
@@ -36,7 +39,12 @@
 </template>
 
 <script>
+import heads from "@/components/head";
+
 export default {
+  components: {
+    heads
+  },
   data() {
     return {
       NO: ""

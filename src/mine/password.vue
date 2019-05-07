@@ -1,17 +1,20 @@
 <template>
   <div class="password">
-    <mu-appbar class="mu-appbar-header" style="width: 100%;" color="primary">
+    <!-- <mu-appbar class="mu-appbar-header" style="width: 100%;" color="primary">
       <mu-button @click="back" class="icon_txt" icon slot="left">
         <mu-icon value="keyboard_arrow_left"></mu-icon>
       </mu-button>设置
       <mu-button flat slot="right">&nbsp;</mu-button>
-    </mu-appbar>
+    </mu-appbar>-->
+    <heads>
+      <span slot="title_name">设置</span>
+    </heads>
     <mu-container class="app_top">
       <mu-list toggle-nested>
         <mu-list-item class="white" button :ripple="true" @click="modifyPwd">
           <mu-list-item-title class="item_txt">修改密码</mu-list-item-title>
           <mu-list-item-action>
-            <mu-icon value="keyboard_arrow_right"></mu-icon>
+           <i class="iconfont icon-enter" style="font-size: 0.48rem"></i>
           </mu-list-item-action>
         </mu-list-item>
       </mu-list>
@@ -24,19 +27,24 @@
 </template>
 
 <script>
+import heads from "@/components/head";
+
 export default {
+  components: {
+    heads
+  },
   data() {
     return {};
   },
   methods: {
-    exit () {
+    exit() {
       localStorage.removeItem("token");
       this.$router.push("/");
     },
     back() {
       window.history.back();
     },
-    modifyPwd () {
+    modifyPwd() {
       this.$router.push("/modify");
     }
   }

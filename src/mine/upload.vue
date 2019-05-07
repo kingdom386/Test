@@ -1,13 +1,16 @@
 <template>
   <div class="upload_box">
-    <mu-appbar class="mu-appbar-header" style="width: 100%;" color="primary">
+    <!-- <mu-appbar class="mu-appbar-header" style="width: 100%;" color="primary">
       <mu-button @click="back" class="icon_txt" icon slot="left">
         <mu-icon value="keyboard_arrow_left"></mu-icon>
       </mu-button>上传合同
       <mu-button flat slot="right" @click="submit">
         <span style="color:#2196f3;">完成</span>
       </mu-button>
-    </mu-appbar>
+    </mu-appbar>-->
+    <heads>
+      <span slot="title_name">上传合同</span>
+    </heads>
     <mu-container class="app_top">
       <div class="img_box">
         <mu-grid-list style="width:100%;" :cols="4" :cell-height="80">
@@ -38,8 +41,12 @@
 <script>
 import axios from "axios";
 import { contractUpload } from "@/utils/api";
+import heads from "@/components/head";
 
 export default {
+  components: {
+    heads
+  },
   computed: {
     getId() {
       return parseInt(this.$route.query.id);

@@ -1,11 +1,12 @@
 <template>
   <div class="d_box">
-    <mu-appbar class="mu-appbar-header" style="width: 100%;" color="primary">
+    <!-- <mu-appbar class="mu-appbar-header" style="width: 100%;" color="primary">
       <mu-button @click="back" class="icon_txt" icon slot="left">
         <mu-icon value="keyboard_arrow_left"></mu-icon>
       </mu-button>设计师介绍
       <mu-button flat slot="right"></mu-button>
-    </mu-appbar>
+    </mu-appbar> -->
+    <heads><span slot="title_name">设计师介绍</span></heads>
     <mu-container class="app_top">
       <mu-flex class="bg_white u_avatar" justify-content="center">
         <mu-avatar size="60">
@@ -42,7 +43,12 @@
 <script>
 import Cookies from "js-cookie";
 import { getDesigner, listCase } from "@/utils/api";
+import heads from "@/components/head";
+
 export default {
+  components: {
+    heads
+  },
   data() {
     return {
       msg: "",

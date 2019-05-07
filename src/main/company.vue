@@ -1,11 +1,14 @@
 <template>
   <div class="c_box">
-    <mu-appbar class="mu-appbar-header" style="width: 100%;" color="primary">
+    <!-- <mu-appbar class="mu-appbar-header" style="width: 100%;" color="primary">
       <mu-button @click="back" class="icon_txt" icon slot="left">
         <mu-icon value="keyboard_arrow_left"></mu-icon>
       </mu-button>装修公司
       <mu-button flat slot="right"></mu-button>
-    </mu-appbar>
+    </mu-appbar>-->
+    <heads>
+      <span slot="title_name">装修公司</span>
+    </heads>
     <mu-container class="app_top">
       <mu-flex class="c_avatar bg_white" justify-content="center">
         <mu-avatar size="80">
@@ -62,11 +65,16 @@
 <script>
 import Cookies from "js-cookie";
 import { detailById, Designers, listcases } from "@/utils/api";
+import heads from "@/components/head";
+
 export default {
   computed: {
     cid() {
       return this.$route.query.id;
     }
+  },
+  components: {
+    heads
   },
   data() {
     return {

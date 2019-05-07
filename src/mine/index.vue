@@ -3,7 +3,8 @@
     <mu-appbar class="mu-appbar-header" style="width: 100%;" color="primary">
       <mu-button flat slot="left">&nbsp;</mu-button>个人中心
       <mu-button flat slot="right" @click="modify">
-        <mu-icon value="settings" color="blue"></mu-icon>
+        <!-- <mu-icon value="settings" color="blue"></mu-icon> -->
+        <i class="iconfont icon-setup_fill" style="color: #2196f3;font-size: 0.4rem;"></i>
       </mu-button>
     </mu-appbar>
     <div class="d_content">
@@ -88,36 +89,40 @@
             <mu-list-item avatar button :ripple="true" @click="mx">
               <mu-list-item-action>
                 <mu-avatar size="34" color="blue">
-                  <mu-icon value="assignment"></mu-icon>
+                  <!-- <mu-icon value="assignment"></mu-icon> -->
+                  <i class="iconfont icon-wenben" style="font-size: 0.48rem"></i>
                 </mu-avatar>
               </mu-list-item-action>
               <mu-list-item-title>查看明细</mu-list-item-title>
               <mu-list-item-action>
-                <mu-icon value="keyboard_arrow_right"></mu-icon>
+                <!-- <mu-icon value="keyboard_arrow_right"></mu-icon> -->
+                <i class="iconfont icon-enter" style="font-size: 0.48rem"></i>
               </mu-list-item-action>
             </mu-list-item>
+
             <mu-divider></mu-divider>
             <mu-list-item avatar button :ripple="true" @click="tx">
               <mu-list-item-action>
                 <mu-avatar size="34" color="blue">
-                  <mu-icon value="account_balance_wallet"></mu-icon>
+                  <!-- <mu-icon value="account_balance_wallet"></mu-icon> -->
+                  <i class="iconfont icon-redpacket_fill" style="font-size: 0.48rem"></i>
                 </mu-avatar>
               </mu-list-item-action>
               <mu-list-item-title>余额体现</mu-list-item-title>
               <mu-list-item-action>
-                <mu-icon value="keyboard_arrow_right"></mu-icon>
+                <i class="iconfont icon-enter" style="font-size: 0.48rem"></i>
               </mu-list-item-action>
             </mu-list-item>
             <mu-divider></mu-divider>
             <mu-list-item avatar button :ripple="true">
               <mu-list-item-action>
                 <mu-avatar size="34" color="blue">
-                  <mu-icon value="share"></mu-icon>
+                  <i class="iconfont icon-share_fill" style="font-size: 0.48rem"></i>
                 </mu-avatar>
               </mu-list-item-action>
               <mu-list-item-title>分享App</mu-list-item-title>
               <mu-list-item-action>
-                <mu-icon value="keyboard_arrow_right"></mu-icon>
+                <i class="iconfont icon-enter" style="font-size: 0.48rem"></i>
               </mu-list-item-action>
             </mu-list-item>
           </mu-list>
@@ -148,7 +153,12 @@
 
 <script>
 import { SalesMan, Config, getOrderCountBySalesMan } from "@/utils/api";
+// import heads from "@/components/head";
+
 export default {
+  // components: {
+  //   heads
+  // },
   data() {
     return {
       selected: "tab3",

@@ -1,11 +1,14 @@
 <template>
   <div class="balance_box">
-    <mu-appbar class="mu-appbar-header" style="width: 100%;" color="primary">
+    <!-- <mu-appbar class="mu-appbar-header" style="width: 100%;" color="primary">
       <mu-button @click="back" class="icon_txt" icon slot="left">
         <mu-icon value="keyboard_arrow_left" color="blue"></mu-icon>
       </mu-button>余额与积分明细
       <mu-button flat slot="right">&nbsp;</mu-button>
-    </mu-appbar>
+    </mu-appbar>-->
+    <heads>
+      <span slot="title_name">余额与积分明细</span>
+    </heads>
     <div class="d_content">
       <div class="bl_pane">
         <span>
@@ -56,7 +59,12 @@
 
 <script>
 import { listCapitalDetail } from "@/utils/api";
+import heads from "@/components/head";
+
 export default {
+  components: {
+    heads
+  },
   computed: {
     jf() {
       return this.$route.query.jf;

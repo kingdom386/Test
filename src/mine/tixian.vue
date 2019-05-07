@@ -1,11 +1,14 @@
 <template>
   <div class="tixian_box">
-    <mu-appbar class="mu-appbar-header" style="width: 100%;" color="primary">
+    <!-- <mu-appbar class="mu-appbar-header" style="width: 100%;" color="primary">
       <mu-button @click="back" class="icon_txt" icon slot="left">
         <mu-icon value="keyboard_arrow_left"></mu-icon>
       </mu-button>余额提现
       <mu-button flat slot="right">&nbsp;</mu-button>
-    </mu-appbar>
+    </mu-appbar>-->
+    <heads>
+      <span slot="title_name">余额提现</span>
+    </heads>
     <mu-container class="app_top">
       <div class="white_bg app_padding">
         <mu-form :model="form" ref="withdraw" class="mu_demo_form" label-width="100">
@@ -34,7 +37,12 @@
 
 <script>
 import { saveWithdraw } from "@/utils/api";
+import heads from "@/components/head";
+
 export default {
+  components: {
+    heads
+  },
   computed: {
     gid() {
       return this.$route.query.id;

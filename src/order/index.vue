@@ -1,11 +1,14 @@
 <template>
   <div class="o_box">
-    <mu-appbar class="mu-appbar-header" style="width: 100%;" color="primary">
+    <!-- <mu-appbar class="mu-appbar-header" style="width: 100%;" color="primary">
       <mu-button @click="back" class="icon_txt" icon slot="left">
         <mu-icon value="keyboard_arrow_left"></mu-icon>
       </mu-button>下单
       <mu-button flat slot="right"></mu-button>
-    </mu-appbar>
+    </mu-appbar>-->
+    <heads>
+      <span slot="title_name">下单</span>
+    </heads>
     <mu-container class="app_top">
       <form>
         <div class="order_title">
@@ -166,7 +169,12 @@
 <script>
 import Cookies from "js-cookie";
 import { saveOrder, saveCutomerPool, orderDetail } from "@/utils/api";
+import heads from "@/components/head";
+
 export default {
+  components: {
+    heads
+  },
   data() {
     return {
       orderNo: "",
