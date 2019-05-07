@@ -49,6 +49,7 @@
       <div class="form_box">
         <div class="form_item">
           <input type="text" @blur="checkval(1)" placeholder="请输入旧密码" v-model="form.oldpassword">
+          <p>{{oldmsg}}&nbsp;</p>
         </div>
         <div class="form_item">
           <input type="text" @blur="checkval(2)" placeholder="请输入新密码" v-model="form.newpassword">
@@ -97,11 +98,26 @@ export default {
   mounted() {},
   methods: {
     checkval(val) {
-      if (val === 1 && !this.form.oldpassword) {
+      if (
+        val === 1 &&
+        !(
+          this.form.oldpassword.length > 6 && this.form.oldpassword.length <= 20
+        )
+      ) {
+        this.oldmsg = "输入的格式有误！";
+        return false;
+      } else if (val === 1 && !this.form.oldpassword) {
+        this.oldmsg = "请输入的旧密码！";
+        return false;
+      } else {
+        this.oldmsg = "";
+        return true;
       }
       if (val === 2) {
+      } else {
       }
       if (val === 3) {
+      } else {
       }
     },
     back() {
@@ -142,9 +158,13 @@ export default {
     background: #fff;
     .form_item {
       position: relative;
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.4rem;
       height: 0.6rem;
       width: 100%;
+      & p {
+        font-size: 0.14rem;
+        color: #e53935;
+      }
     }
     & input {
       width: 100%;
