@@ -1,16 +1,10 @@
 <template>
   <div class="modify_pwd">
-    <!-- <mu-appbar class="mu-appbar-header" style="width: 100%;" color="primary">
-      <mu-button @click="back" flat slot="left">
-        <mu-icon value="keyboard_arrow_left" color="blue"></mu-icon>
-      </mu-button>修改密码
-      <mu-button flat slot="right">&nbsp;</mu-button>
-    </mu-appbar>-->
     <heads>
       <span slot="title_name">修改密码</span>
     </heads>
     <mu-container class="app_top">
-      <!-- <mu-form :model="form" class="mu_demo_form" ref="modifypwd">
+      <mu-form :model="form" class="mu_demo_form" ref="modifypwd">
         <mu-form-item prop="oldpassword" :rules="oldpasswordRules">
           <mu-text-field
             placeholder="请输入旧密码"
@@ -44,23 +38,7 @@
         <mu-form-item>
           <mu-button full-width color="primary" @click="subform" class="btn_txt">确认修改</mu-button>
         </mu-form-item>
-      </mu-form>-->
-
-      <div class="form_box">
-        <div class="form_item">
-          <input type="text" @blur="checkval(1)" placeholder="请输入旧密码" v-model="form.oldpassword">
-          <p>{{oldmsg}}&nbsp;</p>
-        </div>
-        <div class="form_item">
-          <input type="text" @blur="checkval(2)" placeholder="请输入新密码" v-model="form.newpassword">
-        </div>
-        <div class="form_item">
-          <input type="text" @blur="checkval(3)" placeholder="请确认新密码" v-model="form.newpassword1">
-        </div>
-        <div class="form_item" style="margin-top: 0.5rem;">
-          <mu-button full-width color="primary" @click="subform" class="btn_txt">确认修改</mu-button>
-        </div>
-      </div>
+      </mu-form>
     </mu-container>
   </div>
 </template>
@@ -113,37 +91,31 @@ export default {
         this.oldmsg = "";
         return true;
       }
-      if (val === 2) {
-      } else {
-      }
-      if (val === 3) {
-      } else {
-      }
     },
     back() {
       window.history.back();
     },
     subform() {
-      // var _this = this;
-      // this.$refs.modifypwd.validate().then(r => {
-      //   if (r) {
-      //     if (_this.form.newpassword === _this.form.newpassword1) {
-      //       updatePwd({
-      //         oldpwd: _this.form.oldpassword,
-      //         newpwd: _this.form.newpassword,
-      //         phone: localStorage.getItem("mobile")
-      //       }).then(rp => {
-      //         if (rp.code === 0) {
-      //           _this.$router.push("/");
-      //         } else {
-      //           _this.$toast.error(rp.message);
-      //         }
-      //       });
-      //     } else {
-      //       _this.$toast.error("两次输入的密码不一致！");
-      //     }
-      //   }
-      // });
+      var _this = this;
+      this.$refs.modifypwd.validate().then(r => {
+        if (r) {
+          if (_this.form.newpassword === _this.form.newpassword1) {
+            updatePwd({
+              oldpwd: _this.form.oldpassword,
+              newpwd: _this.form.newpassword,
+              phone: localStorage.getItem("mobile")
+            }).then(rp => {
+              if (rp.code === 0) {
+                _this.$router.push("/");
+              } else {
+                _this.$toast.error(rp.message);
+              }
+            });
+          } else {
+            _this.$toast.error("两次输入的密码不一致！");
+          }
+        }
+      });
     }
   }
 };
@@ -151,7 +123,7 @@ export default {
 
 <style lang="scss" scoped>
 .modify_pwd {
-  background: #f1f1f1;
+  background: #fff;
   min-height: 100%;
   .form_box {
     padding: 0.2rem;

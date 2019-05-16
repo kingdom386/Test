@@ -1,11 +1,5 @@
 <template>
   <div class="balance_box">
-    <!-- <mu-appbar class="mu-appbar-header" style="width: 100%;" color="primary">
-      <mu-button @click="back" class="icon_txt" icon slot="left">
-        <mu-icon value="keyboard_arrow_left" color="blue"></mu-icon>
-      </mu-button>余额与积分明细
-      <mu-button flat slot="right">&nbsp;</mu-button>
-    </mu-appbar>-->
     <heads>
       <span slot="title_name">余额与积分明细</span>
     </heads>
@@ -36,14 +30,14 @@
         <!-- navs -->
         <div class="cell_box">
           <div class="tab_one">
-            <div class="tab_content">
+            <div class="tab_content" v-for="(item, index) in listData" :key="index">
               <p>
-                <span class="tab_name">兑换兑换</span>
-                <span class="tab_time">1081-10-10</span>
+                <span class="tab_name">{{item.remarks}}</span>
+                <span class="tab_time">{{item.createTime.substr(0,10)}}</span>
               </p>
               <p>
-                <span class="tab_rest">余额：200.00</span>
-                <span class="tab_dz">+ 20.0</span>
+                <span class="tab_rest">余额：{{item.amount}}</span>
+                <span class="tab_dz">{{item.inOut &lt; 0 ? "-" : "+" }} {{item.inOut}}</span>
               </p>
             </div>
             <!-- tab_content -->

@@ -3,7 +3,6 @@
     <mu-appbar class="mu-appbar-header" style="width: 100%;" color="primary">
       <mu-button flat slot="left">&nbsp;</mu-button>个人中心
       <mu-button flat slot="right" @click="modify">
-        <!-- <mu-icon value="settings" color="blue"></mu-icon> -->
         <i class="iconfont icon-setup_fill" style="color: #2196f3;font-size: 0.4rem;"></i>
       </mu-button>
     </mu-appbar>
@@ -89,13 +88,11 @@
             <mu-list-item avatar button :ripple="true" @click="mx">
               <mu-list-item-action>
                 <mu-avatar size="34" color="blue">
-                  <!-- <mu-icon value="assignment"></mu-icon> -->
                   <i class="iconfont icon-wenben" style="font-size: 0.48rem"></i>
                 </mu-avatar>
               </mu-list-item-action>
               <mu-list-item-title>查看明细</mu-list-item-title>
               <mu-list-item-action>
-                <!-- <mu-icon value="keyboard_arrow_right"></mu-icon> -->
                 <i class="iconfont icon-enter" style="font-size: 0.48rem"></i>
               </mu-list-item-action>
             </mu-list-item>
@@ -104,7 +101,6 @@
             <mu-list-item avatar button :ripple="true" @click="tx">
               <mu-list-item-action>
                 <mu-avatar size="34" color="blue">
-                  <!-- <mu-icon value="account_balance_wallet"></mu-icon> -->
                   <i class="iconfont icon-redpacket_fill" style="font-size: 0.48rem"></i>
                 </mu-avatar>
               </mu-list-item-action>
@@ -173,13 +169,13 @@ export default {
     tx() {
       this.$router.push({
         path: "/tixian",
-        query: { ye: this.userInfo.point, id: this.userInfo.id }
+        query: { ye: this.userInfo.blance, id: this.userInfo.id }
       });
     },
     mx() {
       this.$router.push({
         path: "/balance",
-        query: { ye: this.userInfo.point, jf: this.userInfo.point }
+        query: { ye: this.userInfo.blance, jf: this.userInfo.point }
       });
     },
     checkorder() {
