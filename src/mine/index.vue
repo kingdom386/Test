@@ -3,7 +3,7 @@
     <mu-appbar class="mu-appbar-header" style="width: 100%;" color="primary">
       <mu-button flat slot="left">&nbsp;</mu-button>个人中心
       <mu-button flat slot="right" @click="modify">
-        <i class="iconfont icon-setup_fill" style="color: #2196f3;font-size: 0.4rem;"></i>
+        <i class="iconfont icon-setup_fill" style="color: #2196f3;font-size: 0.5rem;"></i>
       </mu-button>
     </mu-appbar>
     <div class="d_content">
